@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3eee8">
+<title>ÉLAN Atelier — Beauty & Care</title>
+<meta name="description" content="Concepto premium para negocios de belleza y servicios con cita. Marca y datos ficticios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3eee8; --bg2:#e7ddd2; --ink:#171411; --muted:#756c63; --line:rgba(23,20,17,.13);
+  --accent:#8d6f57; --white:#fff; --dark:#151210; --max:1220px; --radius:28px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img{display:block;width:100%;height:100%;object-fit:cover}
+button,input,select,textarea{font:inherit}.wrap{max-width:var(--max);margin:auto;padding:0 26px}
+.serif{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.04em;line-height:.95}
+.kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.67rem;font-weight:700;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:999px;border:1px solid var(--ink);font-size:.83rem;font-weight:700;transition:.25s;background:transparent;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}.btn.dark{background:var(--ink);color:#fff}.btn.light{background:#fff;border-color:#fff}
+.section{padding:112px 0}
+.titleRow{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:end;margin-bottom:52px}
+.titleRow h2{font-size:clamp(3rem,6.6vw,6.1rem);margin:10px 0 0}
+.titleRow p{margin:0;color:var(--muted);font-size:1rem;max-width:520px}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s ease}.reveal.on{opacity:1;transform:none}
+
+/* HEADER */
+.headWrap{position:fixed;z-index:200;top:12px;left:0;right:0}
+header{max-width:var(--max);margin:auto;padding:10px 12px 10px 20px;border-radius:999px;background:rgba(243,238,232,.84);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.55);box-shadow:0 14px 50px rgba(25,19,14,.08);display:flex;align-items:center;justify-content:space-between}
+.logo{font:500 1.4rem "Playfair Display";letter-spacing:.04em}.logo small{font:700 .57rem "Manrope";letter-spacing:.16em;color:var(--muted);margin-left:8px}
+.nav{display:flex;gap:26px;align-items:center;font-size:.8rem;font-weight:600}.menuBtn{display:none;border:0;background:none;font-size:1.4rem}
+
+/* HERO */
+.hero{min-height:100svh;padding:110px 0 34px;display:flex;align-items:center;position:relative}
+.hero:before{content:"";position:absolute;right:-10%;top:14%;width:42vw;height:42vw;border-radius:50%;background:radial-gradient(circle at center,rgba(141,111,87,.10),transparent 68%);pointer-events:none}
+.heroGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:center}
+.heroCopy{padding:35px 0}.hero h1{font-size:clamp(4.3rem,9vw,8.5rem);margin:15px 0 25px;max-width:680px}
+.hero h1 em{font-weight:500;color:var(--accent)}.heroCopy>p{color:var(--muted);max-width:560px;font-size:1.04rem}
+.heroActions{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+.heroVisual{position:relative;height:min(74vh,780px);min-height:590px}
+.heroMain{position:absolute;inset:0 0 0 11%;border-radius:34px;overflow:hidden;box-shadow:0 26px 90px rgba(22,17,13,.14)}
+.heroMain:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.52))}
+.heroFloat{position:absolute;z-index:3;left:0;top:11%;width:190px;height:250px;border-radius:24px;overflow:hidden;border:7px solid var(--bg);box-shadow:0 18px 55px rgba(0,0,0,.12)}
+.heroCard{position:absolute;z-index:4;right:20px;bottom:20px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);padding:18px 19px;border-radius:18px;min-width:225px}
+.heroCard strong{display:block;font-size:1.02rem}.heroCard span{font-size:.72rem;color:var(--muted)}
+.heroMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:38px;max-width:560px}.heroMeta div{padding-top:13px;border-top:1px solid var(--line)}.heroMeta strong{display:block}.heroMeta small{color:var(--muted)}
+
+/* TRUST */
+.trust{padding:20px 0 44px}.trustBar{display:grid;grid-template-columns:1.2fr repeat(4,1fr);gap:20px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);align-items:center}
+.trustBar span{font-size:.72rem;color:var(--muted)}.trustBar b{font-size:.78rem;text-align:center;letter-spacing:.04em}
+
+/* SERVICES */
+.services{background:var(--dark);color:#fff}.services .titleRow p{color:#b8b0aa}.services .kicker{color:#d0ad90}
+.serviceGrid{display:grid;grid-template-columns:1.3fr .85fr .85fr;gap:15px}
+.svc{position:relative;height:540px;border-radius:28px;overflow:hidden;background:#2b2521}
+.svc:nth-child(2),.svc:nth-child(3){height:540px}.svc img{transition:.6s}.svc:hover img{transform:scale(1.035)}
+.svc:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 28%,rgba(0,0,0,.78))}
+.svcCopy{position:absolute;z-index:2;left:22px;right:22px;bottom:22px}.svcNum{font-size:.66rem;letter-spacing:.16em;color:#c8b09d}
+.svc h3{font:500 2.15rem "Playfair Display";margin:6px 0 8px}.svc p{font-size:.78rem;color:#cec6c0;max-width:280px;margin:0}.svcPrice{position:absolute;top:20px;right:20px;z-index:2;background:rgba(255,255,255,.92);color:var(--ink);padding:8px 11px;border-radius:999px;font-size:.7rem;font-weight:700}
+
+/* MENU */
+.priceWrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px;align-items:start}.priceIntro{position:sticky;top:110px}.priceIntro h2{font-size:clamp(3rem,5.5vw,5rem);margin:10px 0 20px}.priceIntro p{color:var(--muted)}
+.priceGroup{margin-bottom:38px}.priceGroup h3{font:500 1.8rem "Playfair Display";margin:0 0 10px}.priceLine{display:grid;grid-template-columns:1fr auto;gap:22px;padding:16px 0;border-bottom:1px solid var(--line)}.priceLine small{display:block;color:var(--muted);margin-top:4px}.priceLine b{font-size:.9rem}
+.note{margin-top:24px;border-left:2px solid var(--accent);padding:2px 0 2px 15px;color:var(--muted);font-size:.77rem}
+
+/* EXPERIENCE */
+.experience{background:var(--bg2)}.storyGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.storyPhoto{min-height:720px;border-radius:32px;overflow:hidden}.storyText{background:#fff;border-radius:32px;padding:58px;display:flex;flex-direction:column;justify-content:space-between}
+.storyText h2{font-size:clamp(3rem,5.7vw,5.5rem);margin:10px 0 24px}.storyText p{color:var(--muted)}.principle{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:17px 0;border-top:1px solid var(--line)}.principle span{font-size:.67rem;color:var(--accent);font-weight:700}.principle small{display:block;color:var(--muted);margin-top:3px}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:1.1fr .8fr .9fr;grid-template-rows:320px 320px;gap:14px}
+.gallery figure{margin:0;border-radius:24px;overflow:hidden;position:relative}.gallery figure:first-child{grid-row:1/3}.gallery figure:last-child{grid-column:2/4}
+.gallery figcaption{position:absolute;left:15px;bottom:15px;background:rgba(255,255,255,.9);padding:8px 10px;border-radius:10px;font-size:.68rem;font-weight:700}
+
+/* REVIEWS */
+.reviews{background:#cbb8a5}.reviewGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:18px}
+.reviewHero{background:var(--dark);color:#fff;border-radius:30px;padding:55px}.stars{color:#d3b18f;letter-spacing:.12em}.reviewHero blockquote{font:500 clamp(2.2rem,4.5vw,4rem)/1.05 "Playfair Display";margin:30px 0 48px}.reviewFoot{display:flex;justify-content:space-between;gap:18px;color:#c4bdb7;font-size:.76rem}
+.reviewSide{display:grid;gap:18px}.reviewCard{background:rgba(255,255,255,.52);border-radius:26px;padding:28px}.reviewCard p{font:500 1.4rem/1.2 "Playfair Display";margin:17px 0 28px}.reviewCard small{color:var(--muted)}
+
+/* CTA */
+.cta{padding:0 0 110px}.ctaBox{background:var(--dark);color:#fff;border-radius:34px;display:grid;grid-template-columns:1fr .8fr;overflow:hidden;min-height:520px}.ctaCopy{padding:66px}.ctaCopy h2{font-size:clamp(3.4rem,6vw,5.8rem);margin:12px 0 22px}.ctaCopy p{color:#bdb5ae;max-width:480px}.ctaImg{min-height:520px}
+.ctaActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+
+/* FAQ + FOOTER */
+.faqGrid{display:grid;grid-template-columns:.68fr 1.32fr;gap:70px}.faqGrid h2{font-size:clamp(3rem,5.5vw,5.2rem);margin:10px 0}
+details{border-top:1px solid var(--line);padding:20px 0}summary{font-weight:700;list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px}summary:after{content:"+";color:var(--accent);font-size:1.2rem}details[open] summary:after{content:"—"}details p{color:var(--muted);font-size:.87rem;max-width:650px}
+footer{background:#0e0c0a;color:#fff;padding:64px 0 28px}.footGrid{display:grid;grid-template-columns:1.4fr .7fr .7fr;gap:60px}.footGrid p,.footGrid a{color:#aaa29b}.footLinks{display:grid;gap:9px;font-size:.8rem}.demoTag{display:inline-block;margin-top:16px;padding:7px 10px;border:1px solid rgba(255,255,255,.18);border-radius:999px;font-size:.6rem;letter-spacing:.1em;color:#bfb7b0;text-transform:uppercase}.footBottom{margin-top:48px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;color:#817970;font-size:.65rem}
+.mobileBar{display:none;position:fixed;z-index:190;left:10px;right:10px;bottom:10px;background:var(--dark);padding:9px;border-radius:15px;grid-template-columns:1fr 1fr;box-shadow:0 15px 50px rgba(0,0,0,.3)}.mobileBar a{text-align:center;color:#fff;padding:10px;font-size:.78rem;font-weight:700}.mobileBar a:last-child{background:#fff;color:var(--ink);border-radius:10px}
+
+/* MOBILE */
+@media(max-width:950px){
+.section{padding:80px 0}.titleRow,.heroGrid,.storyGrid,.reviewGrid,.ctaBox,.faqGrid,.priceWrap{grid-template-columns:1fr;gap:30px}.nav{display:none;position:absolute;top:62px;left:14px;right:14px;background:var(--bg);padding:22px;border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.15);flex-direction:column;align-items:flex-start}.nav.open{display:flex}.menuBtn{display:block}.hero{padding-top:92px}.heroVisual{height:64vh;min-height:520px}.serviceGrid{grid-template-columns:1fr}.svc,.svc:nth-child(2),.svc:nth-child(3){height:460px}.priceIntro{position:static}.storyPhoto{min-height:560px}.storyText{padding:36px}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:360px 230px 230px}.gallery figure:first-child{grid-column:1/-1;grid-row:auto}.gallery figure:last-child{grid-column:1/-1}.ctaCopy{padding:42px}.ctaImg{min-height:400px}.footGrid{grid-template-columns:1fr 1fr}.footGrid>div:first-child{grid-column:1/-1}.mobileBar{display:grid}body{padding-bottom:74px}
+}
+@media(max-width:580px){
+.wrap{padding:0 16px}header{margin:0 8px}.hero h1{font-size:clamp(4.2rem,18vw,6.5rem)}.heroVisual{min-height:470px}.heroFloat{width:145px;height:190px}.heroMain{inset:0 0 0 8%}.titleRow h2{font-size:3.2rem}.heroMeta{gap:7px}.storyText{padding:28px}.gallery{grid-template-columns:1fr;grid-template-rows:repeat(4,270px)}.gallery figure,.gallery figure:first-child,.gallery figure:last-child{grid-column:auto}.reviewHero{padding:30px}.ctaCopy{padding:30px}.footGrid{grid-template-columns:1fr}.footGrid>div:first-child{grid-column:auto}.footBottom{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<div class="headWrap"><header><a class="logo" href="#inicio">ÉLAN <small>ATELIER</small></a><nav class="nav" id="nav"><a href="#servicios">Servicios</a><a href="#tarifas">Tarifas</a><a href="#estudio">Estudio</a><a href="#opiniones">Opiniones</a><a href="#faq">FAQ</a><a class="btn dark" href="#reserva">Reservar</a></nav><button class="menuBtn" id="menu">☰</button></header></div>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap heroGrid">
+<div class="heroCopy reveal"><div class="kicker">Beauty · Hair · Skin</div><h1 class="serif">Cuidado que se <em>nota.</em></h1><p>Un estudio contemporáneo donde técnica, tiempo y detalle trabajan juntos. Diagnóstico personalizado, especialistas por servicio y una experiencia pensada para volver.</p><div class="heroActions"><a class="btn dark" href="#reserva">Reservar cita ↗</a><a class="btn" href="#servicios">Explorar servicios</a></div><div class="heroMeta"><div><strong>4,9 / 5</strong><small>valoración demo</small></div><div><strong>+6 años</strong><small>experiencia demo</small></div><div><strong>L–S</strong><small>09:30–20:00</small></div></div></div>
+<div class="heroVisual reveal"><div class="heroMain"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=88&w=1800" alt="Interior premium de salón"></div><div class="heroFloat"><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&q=88&w=700" alt="Detalle de trabajo profesional"></div><div class="heroCard"><strong>Reserva sin llamadas</strong><span>Web · WhatsApp · Booksy · Odoo</span></div></div>
+</div></section>
+
+<section class="trust"><div class="wrap trustBar"><span>Diseñado para convertir visitas en citas</span><b>RESERVA FÁCIL</b><b>PRECIOS CLAROS</b><b>FOTOS REALES</b><b>MÓVIL PRIMERO</b></div></section>
+
+<section class="section services" id="servicios"><div class="wrap"><div class="titleRow reveal"><div><div class="kicker">Servicios</div><h2 class="serif">Menos opciones. Mejor elegidas.</h2></div><p>Una carta visual, sencilla y ordenada. El cliente entiende qué haces, cuánto cuesta y cómo reservar sin tener que escribir primero por Instagram.</p></div>
+<div class="serviceGrid">
+<article class="svc reveal"><span class="svcPrice">desde 24 €</span><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&q=86&w=1300"><div class="svcCopy"><span class="svcNum">01 · HAIR</span><h3>Corte & Color</h3><p>Diagnóstico, técnica y acabado adaptados a cada persona.</p></div></article>
+<article class="svc reveal"><span class="svcPrice">desde 55 €</span><img src="https://images.unsplash.com/photo-1757689373248-a6cd07328ba5?auto=format&fit=crop&q=86&w=1000"><div class="svcCopy"><span class="svcNum">02 · SKIN</span><h3>Facial Care</h3><p>Higiene, hidratación y tratamientos personalizados.</p></div></article>
+<article class="svc reveal"><span class="svcPrice">desde 18 €</span><img src="https://images.unsplash.com/photo-1737214475292-949c0bf920b0?auto=format&fit=crop&q=86&w=1000"><div class="svcCopy"><span class="svcNum">03 · DETAIL</span><h3>Nails & Brows</h3><p>Manicura, cejas y pestañas con acabado limpio y natural.</p></div></article>
+</div></div></section>
+
+<section class="section" id="tarifas"><div class="wrap priceWrap"><aside class="priceIntro reveal"><div class="kicker">Tarifas</div><h2 class="serif">Precios que no obligan a preguntar.</h2><p>En una web real podemos mostrar precios exactos, “desde”, rangos o esconderlos si el negocio necesita valoración previa.</p><div class="note">Todos los datos de esta demo son ficticios y se utilizan únicamente para mostrar el diseño.</div></aside><div class="reveal">
+<div class="priceGroup"><h3>Hair</h3><div class="priceLine"><div><strong>Corte + styling</strong><small>Consulta, lavado, corte y acabado</small></div><b>24 €</b></div><div class="priceLine"><div><strong>Color raíz</strong><small>Color, lavado y tratamiento</small></div><b>48 €</b></div><div class="priceLine"><div><strong>Balayage personalizado</strong><small>Diagnóstico previo incluido</small></div><b>desde 85 €</b></div><div class="priceLine"><div><strong>Tratamiento reparación</strong><small>Hidratación profunda + styling</small></div><b>39 €</b></div></div>
+<div class="priceGroup"><h3>Beauty</h3><div class="priceLine"><div><strong>Higiene facial</strong><small>Diagnóstico + limpieza + hidratación</small></div><b>55 €</b></div><div class="priceLine"><div><strong>Manicura semipermanente</strong><small>Preparación + color + acabado</small></div><b>25 €</b></div><div class="priceLine"><div><strong>Diseño de cejas</strong><small>Visagismo + depilación</small></div><b>18 €</b></div><div class="priceLine"><div><strong>Lifting de pestañas</strong><small>Lifting + tinte + cuidado</small></div><b>42 €</b></div></div>
+</div></div></section>
+
+<section class="section experience" id="estudio"><div class="wrap storyGrid"><div class="storyPhoto reveal"><img src="https://images.unsplash.com/photo-1746723378067-83a345ff3160?auto=format&fit=crop&q=87&w=1700" alt="Estudio de belleza editorial"></div><div class="storyText reveal"><div><div class="kicker">La experiencia</div><h2 class="serif">Que el espacio también venda confianza.</h2><p>La web no solo enumera servicios. Presenta el negocio como una marca: imágenes coherentes, textos claros, prueba social y una reserva que siempre está a mano.</p></div><div><div class="principle"><span>01</span><div><strong>Primero escuchamos</strong><small>El diseño parte de lo que realmente vende el negocio.</small></div></div><div class="principle"><span>02</span><div><strong>Todo tiene una función</strong><small>Cada sección conduce hacia llamada, WhatsApp o reserva.</small></div></div><div class="principle"><span>03</span><div><strong>Mobile-first</strong><small>Diseñado para quien llega desde Google, Maps o Instagram.</small></div></div></div></div></div></section>
+
+<section class="section"><div class="wrap"><div class="titleRow reveal"><div><div class="kicker">Galería</div><h2 class="serif">El trabajo entra primero por los ojos.</h2></div><p>En un cliente real sustituimos esta galería por fotografías propias del negocio, su equipo, resultados e instalaciones.</p></div><div class="gallery reveal"><figure><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=84&w=1200"><figcaption>Espacio</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&q=84&w=900"><figcaption>Hair</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1676926606566-58f2e00b592b?auto=format&fit=crop&q=84&w=900"><figcaption>Detail</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1757689373248-a6cd07328ba5?auto=format&fit=crop&q=84&w=1200"><figcaption>Skin</figcaption></figure></div></div></section>
+
+<section class="section reviews" id="opiniones"><div class="wrap"><div class="titleRow reveal"><div><div class="kicker">Prueba social</div><h2 class="serif">La reputación merece estar en la web.</h2></div><p>En producción solo utilizamos reseñas reales del negocio. Aquí se muestran testimonios ficticios para presentar el diseño.</p></div><div class="reviewGrid"><article class="reviewHero reveal"><div class="stars">★★★★★</div><blockquote>“La sensación de cuidado empieza antes de llegar al estudio.”</blockquote><div class="reviewFoot"><span>Laura M. · ficticio</span><span>Hair & Color</span></div></article><div class="reviewSide"><article class="reviewCard reveal"><div class="stars">★★★★★</div><p>“Reservé en dos minutos y encontré toda la información sin tener que preguntar.”</p><small>Andrea R. · testimonio ficticio</small></article><article class="reviewCard reveal"><div class="stars">★★★★★</div><p>“La imagen de la web transmite exactamente lo que encuentras al entrar.”</p><small>Claudia V. · testimonio ficticio</small></article></div></div></div></section>
+
+<section class="section" id="reserva"><div class="wrap cta"><div class="ctaBox reveal"><div class="ctaCopy"><div class="kicker">Reserva</div><h2 class="serif">Haz fácil decir que sí.</h2><p>La llamada a la acción puede abrir WhatsApp, Booksy, Treatwell, Odoo Citas o un formulario propio. Lo importante es no obligar al cliente a buscar cómo reservar.</p><div class="ctaActions"><a class="btn light" href="#faq">Solicitar cita</a><a class="btn" style="border-color:#6a625c;color:#fff" href="#contacto">WhatsApp</a></div></div><div class="ctaImg"><img src="https://images.unsplash.com/photo-1676926606566-58f2e00b592b?auto=format&fit=crop&q=86&w=1200"></div></div></div></section>
+
+<section class="section" id="faq"><div class="wrap faqGrid"><div class="reveal"><div class="kicker">FAQ</div><h2 class="serif">Antes de reservar.</h2></div><div class="reveal"><details><summary>¿Tengo que elegir un servicio exacto?</summary><p>No. La web puede orientar al cliente o enviarlo a una valoración previa cuando sea necesario.</p></details><details><summary>¿Podemos usar Booksy o Treatwell?</summary><p>Sí. La web puede servir de escaparate propio y mandar la reserva al sistema que el negocio ya utiliza.</p></details><details><summary>¿Hay que mostrar los precios?</summary><p>No. Podemos publicar precios, “desde”, rangos o únicamente explicar los servicios.</p></details><details><summary>¿La web se adapta al móvil?</summary><p>Sí. Este concepto está pensado mobile-first para tráfico que llega desde Google, Maps, Instagram y WhatsApp.</p></details></div></div></section>
+</main>
+
+<footer id="contacto"><div class="wrap"><div class="footGrid"><div><a class="logo" href="#inicio">ÉLAN <small>ATELIER</small></a><p>Concepto premium para belleza y servicios con cita.</p><span class="demoTag">Demo comercial · marca ficticia</span></div><div><div class="kicker">Contacto</div><div class="footLinks" style="margin-top:14px"><a>+34 600 000 000</a><a>hola@elan.demo</a><a>Madrid · ubicación demo</a></div></div><div><div class="kicker">Navegar</div><div class="footLinks" style="margin-top:14px"><a href="#servicios">Servicios</a><a href="#tarifas">Tarifas</a><a href="#opiniones">Opiniones</a><a href="#reserva">Reservar</a></div></div></div><div class="footBottom"><span>© 2026 ÉLAN Atelier · concepto de demostración</span><span>Privacidad · Cookies · Aviso legal</span></div></div></footer>
+<div class="mobileBar"><a href="#servicios">Servicios</a><a href="#reserva">Reservar cita</a></div>
+<script>
+const menu=document.getElementById('menu'),nav=document.getElementById('nav');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body></html>
