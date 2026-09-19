@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ÉLAN Atelier — concepto digital premium para un salón de belleza contemporáneo.">
+  <title>ÉLAN Atelier — Hair & Beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#171713;--paper:#f3efe7;--cream:#e8dfd1;--sage:#8c907b;
+      --clay:#aa745c;--line:rgba(23,23,19,.18);--white:#fffdf8;
+      --serif:"Italiana",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+      --max:1240px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
+    body.lock{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    .wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+    .demo-bar{background:var(--ink);color:var(--white);font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:9px 16px}
+    header{position:sticky;top:0;z-index:50;background:rgba(243,239,231,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .brand{font-family:var(--serif);font-size:30px;letter-spacing:.04em;white-space:nowrap}
+    .brand small{display:block;font:500 8px var(--sans);letter-spacing:.28em;text-transform:uppercase;margin-top:-2px}
+    .nav-links{display:flex;align-items:center;gap:30px;font-size:13px}
+    .nav-links a{position:relative}
+    .nav-links a:not(.pill)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:currentColor;transition:.25s}
+    .nav-links a:hover::after{width:100%}
+    .pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--ink);border-radius:999px;padding:13px 21px;font-size:12px;font-weight:600;transition:.25s;background:transparent;color:var(--ink)}
+    .pill:hover{background:var(--ink);color:var(--white)}
+    .pill.dark{background:var(--ink);color:var(--white)}
+    .pill.dark:hover{background:var(--clay);border-color:var(--clay)}
+    .menu{display:none;border:0;background:none;font-size:24px}
+
+    .hero{min-height:760px;display:grid;grid-template-columns:1.03fr .97fr;border-bottom:1px solid var(--line)}
+    .hero-copy{padding:96px max(5vw,32px) 68px max(calc((100vw - var(--max))/2),24px);display:flex;flex-direction:column;justify-content:center}
+    .eyebrow{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+    .eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+    h1,h2,h3,p{margin-top:0}
+    h1{font:400 clamp(62px,7.7vw,124px)/.84 var(--serif);letter-spacing:-.04em;margin:36px 0 34px;max-width:700px}
+    .hero-copy>p{font-size:16px;line-height:1.7;max-width:510px;color:rgba(23,23,19,.7)}
+    .hero-actions{display:flex;align-items:center;gap:16px;margin-top:26px;flex-wrap:wrap}
+    .hero-note{font-size:11px;color:rgba(23,23,19,.55)}
+    .hero-visual{position:relative;min-height:650px;overflow:hidden;background:#b9aa99}
+    .hero-visual img{transition:transform 1.2s ease}
+    .hero:hover .hero-visual img{transform:scale(1.025)}
+    .hero-stamp{position:absolute;left:28px;bottom:28px;width:142px;height:142px;border-radius:50%;background:var(--paper);display:grid;place-items:center;text-align:center;font:400 15px/1.25 var(--serif);transform:rotate(-7deg);box-shadow:0 14px 50px rgba(0,0,0,.13)}
+
+    .ticker{overflow:hidden;border-bottom:1px solid var(--line);padding:19px 0;white-space:nowrap}
+    .ticker-track{display:inline-flex;gap:34px;animation:ticker 24s linear infinite;font:400 19px var(--serif)}
+    .ticker-track span::after{content:"✦";font:10px var(--sans);margin-left:34px;color:var(--clay)}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+
+    section{padding:120px 0}
+    .section-head{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:58px}
+    h2{font:400 clamp(48px,6vw,82px)/.95 var(--serif);letter-spacing:-.035em;margin-bottom:0}
+    .section-head p{font-size:15px;line-height:1.75;color:rgba(23,23,19,.67);max-width:500px;margin:0 0 4px auto}
+    .services{background:var(--white)}
+    .service-grid{border-top:1px solid var(--line)}
+    .service{display:grid;grid-template-columns:65px 1fr 2fr auto;align-items:center;gap:24px;padding:27px 0;border-bottom:1px solid var(--line);transition:.25s}
+    .service:hover{padding-left:12px;color:var(--clay)}
+    .service-num{font-size:10px;letter-spacing:.16em}
+    .service h3{font:400 30px var(--serif);margin:0}
+    .service p{font-size:13px;color:rgba(23,23,19,.62);margin:0}
+    .service-price{font-size:12px;font-weight:600;white-space:nowrap}
+
+    .story{padding:0;background:var(--sage);color:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:760px}
+    .story-image{min-height:640px}
+    .story-copy{padding:100px max(calc((100vw - var(--max))/2),40px) 100px 8vw;display:flex;flex-direction:column;justify-content:center}
+    .story-copy .eyebrow{color:rgba(255,255,255,.72)}
+    .story-copy h2{margin:34px 0 28px}
+    .story-copy p{font-size:15px;line-height:1.8;color:rgba(255,255,255,.78);max-width:520px}
+    .story-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px;border-top:1px solid rgba(255,255,255,.25);padding-top:26px}
+    .story-list span{font:400 21px var(--serif)}
+
+    .looks{background:var(--ink);color:var(--white)}
+    .looks .section-head p{color:rgba(255,255,255,.62)}
+    .gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:18px;align-items:start}
+    .look{position:relative;overflow:hidden;background:#292923}
+    .look:nth-child(1){height:620px}
+    .look:nth-child(2){height:460px;margin-top:110px}
+    .look:nth-child(3){height:540px;margin-top:28px}
+    .look img{filter:saturate(.72);transition:.7s}
+    .look:hover img{transform:scale(1.035);filter:saturate(1)}
+    .look-label{position:absolute;left:18px;bottom:18px;background:rgba(243,239,231,.92);color:var(--ink);padding:10px 13px;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+
+    .ritual-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:center}
+    .ritual-card{position:relative;height:700px}
+    .ritual-card img{border-radius:240px 240px 0 0}
+    .ritual-copy h2{margin:28px 0}
+    .ritual-copy>p{line-height:1.8;color:rgba(23,23,19,.66)}
+    .steps{margin-top:44px}
+    .step{display:grid;grid-template-columns:42px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+    .step:last-child{border-bottom:1px solid var(--line)}
+    .step b{font:400 14px var(--serif)}
+    .step h3{font:400 22px var(--serif);margin:0 0 6px}
+    .step p{font-size:12px;color:rgba(23,23,19,.58);margin:0}
+
+    .booking{background:var(--clay);color:var(--white);padding:90px 0}
+    .booking-inner{display:flex;align-items:center;justify-content:space-between;gap:50px}
+    .booking h2{max-width:800px}
+    .booking .pill{border-color:var(--white);color:var(--white);flex:0 0 auto}
+    .booking .pill:hover{background:var(--white);color:var(--ink)}
+    footer{background:var(--ink);color:var(--white);padding:72px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:80px;padding-bottom:70px}
+    footer .brand{font-size:44px}
+    footer p,footer a{font-size:12px;color:rgba(255,255,255,.63);line-height:1.9}
+    footer h3{font-size:10px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:20px}
+    .footer-links{display:flex;flex-direction:column;align-items:flex-start}
+    .legal{border-top:1px solid rgba(255,255,255,.16);padding-top:24px;display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.42)}
+
+    .modal{position:fixed;inset:0;z-index:100;background:rgba(15,15,12,.68);backdrop-filter:blur(9px);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.25s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .modal-card{background:var(--paper);width:min(100%,620px);max-height:90vh;overflow:auto;padding:38px;position:relative;transform:translateY(18px);transition:.3s}
+    .modal.open .modal-card{transform:none}
+    .close{position:absolute;right:22px;top:18px;border:0;background:none;font-size:24px}
+    .modal h2{font-size:48px;margin:10px 0 12px}
+    .modal>div>p{font-size:13px;color:rgba(23,23,19,.62);line-height:1.6}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}
+    label{font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+    label.full{grid-column:1/-1}
+    input,select,textarea{width:100%;border:1px solid var(--line);background:var(--white);padding:14px;margin-top:7px;border-radius:0;color:var(--ink)}
+    textarea{min-height:90px;resize:vertical}
+    .submit{width:100%;border:0;background:var(--ink);color:var(--white);padding:16px;margin-top:18px;font-weight:600}
+    .form-note{text-align:center;font-size:10px!important;margin:12px 0 0!important}
+    .toast{position:fixed;z-index:150;bottom:24px;left:50%;transform:translate(-50%,30px);background:var(--ink);color:var(--white);padding:14px 20px;font-size:12px;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:78px;left:0;right:0;background:var(--paper);padding:28px;flex-direction:column;border-bottom:1px solid var(--line)}
+      .nav-links.open{display:flex}.menu{display:block}
+      .hero{grid-template-columns:1fr}.hero-copy{padding:75px 24px 58px}.hero-visual{min-height:600px}.hero-stamp{width:112px;height:112px;font-size:13px}
+      section{padding:85px 0}.section-head{grid-template-columns:1fr}.section-head p{margin:0}
+      .service{grid-template-columns:42px 1fr auto}.service p{display:none}
+      .story{grid-template-columns:1fr}.story-image{min-height:580px}.story-copy{padding:80px 24px}
+      .gallery{grid-template-columns:1fr 1fr}.look:nth-child(1){grid-column:1/-1;height:600px}.look:nth-child(2),.look:nth-child(3){margin-top:0;height:440px}
+      .ritual-grid{grid-template-columns:1fr;gap:60px}.ritual-card{height:600px}
+      .booking-inner{display:block}.booking .pill{margin-top:32px}
+      .footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}
+    }
+    @media(max-width:560px){
+      .wrap{width:min(calc(100% - 28px),var(--max))}nav{height:68px}.brand{font-size:26px}
+      .nav-links{top:68px}h1{font-size:57px}.hero{min-height:0}.hero-copy{padding-top:58px}.hero-visual{min-height:480px}
+      .service{grid-template-columns:30px 1fr}.service-price{grid-column:2}.service h3{font-size:25px}
+      .story-image{min-height:480px}.story-list{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}.look:nth-child(1){height:520px}.look:nth-child(2),.look:nth-child(3){height:480px}
+      .ritual-card{height:500px}.booking h2{font-size:44px}
+      .footer-grid{grid-template-columns:1fr;gap:38px}.footer-grid>div:first-child{grid-column:auto}.legal{display:block}.legal span{display:block;margin-top:8px}
+      .form-grid{grid-template-columns:1fr}.modal-card{padding:28px 20px}.modal h2{font-size:40px}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.ticker-track{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="demo-bar">Concepto de demostración · Datos y marca ficticios · VELSUNA Web Studio</div>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#inicio">ÉLAN <small>Hair Atelier · Madrid</small></a>
+      <button class="menu" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#servicios">Servicios</a><a href="#atelier">El atelier</a><a href="#looks">Looks</a><a href="#ritual">El ritual</a>
+        <a class="pill" href="#" onclick="openBooking(event)">Reservar cita</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow">Belleza consciente · Madrid</div>
+        <h1>Tu cabello,<br>tu lenguaje.</h1>
+        <p>Color, corte y cuidado con una mirada editorial. Diseñamos cada servicio alrededor de tu textura, tu ritmo y tu manera de estar en el mundo.</p>
+        <div class="hero-actions">
+          <a class="pill dark" href="#" onclick="openBooking(event)">Reservar experiencia</a>
+          <a class="pill" href="#servicios">Ver servicios</a>
+          <span class="hero-note">Consulta previa incluida</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=88" alt="Interior elegante de un salón de belleza">
+        <div class="hero-stamp">Belleza<br>con intención<br>— ÉLAN</div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">
+      <span>Corte de autor</span><span>Color orgánico</span><span>Tratamientos</span><span>Rituales de brillo</span><span>Asesoría personal</span>
+      <span>Corte de autor</span><span>Color orgánico</span><span>Tratamientos</span><span>Rituales de brillo</span><span>Asesoría personal</span>
+    </div></div>
+
+    <section class="services" id="servicios">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Carta de servicios</div><h2>Lo esencial,<br>elevado.</h2></div>
+          <p>Servicios pensados como una colaboración. Comenzamos escuchando y terminamos con una imagen que se siente verdaderamente tuya.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service"><span class="service-num">01</span><h3>Corte Signature</h3><p>Diagnóstico, lavado, corte personalizado y acabado.</p><span class="service-price">desde 48 €</span></article>
+          <article class="service"><span class="service-num">02</span><h3>Color ÉLAN</h3><p>Coloración a medida con estudio de tono y mantenimiento.</p><span class="service-price">desde 72 €</span></article>
+          <article class="service"><span class="service-num">03</span><h3>Balayage Atelier</h3><p>Luz estratégica, matiz y tratamiento de protección.</p><span class="service-price">desde 110 €</span></article>
+          <article class="service"><span class="service-num">04</span><h3>Ritual Repair</h3><p>Diagnóstico de fibra, reconstrucción y masaje capilar.</p><span class="service-price">desde 42 €</span></article>
+          <article class="service"><span class="service-num">05</span><h3>Evento & Styling</h3><p>Peinado editorial adaptado a tu estilo y ocasión.</p><span class="service-price">desde 55 €</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="atelier">
+      <div class="story-image"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=88" alt="Profesional trabajando en un salón"></div>
+      <div class="story-copy">
+        <div class="eyebrow">Nuestro enfoque</div>
+        <h2>Más atelier.<br>Menos rutina.</h2>
+        <p>ÉLAN nace de una idea sencilla: el cabello no se impone, se interpreta. Trabajamos con tiempo, técnica y productos seleccionados para que cada resultado tenga sentido hoy y siga funcionando mañana.</p>
+        <div class="story-list"><span>Escucha real</span><span>Técnica precisa</span><span>Belleza honesta</span><span>Cuidado continuo</span></div>
+      </div>
+    </section>
+
+    <section class="looks" id="looks">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Selección editorial</div><h2>Formas, luz<br>y movimiento.</h2></div>
+          <p>Una muestra visual de acabados y direcciones creativas. Cada propuesta se adapta después a la persona, nunca al revés.</p>
+        </div>
+        <div class="gallery">
+          <figure class="look"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=88" alt="Cabello largo con movimiento"><figcaption class="look-label">Soft layers · 01</figcaption></figure>
+          <figure class="look"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=88" alt="Retrato editorial de cabello"><figcaption class="look-label">Warm dimension · 02</figcaption></figure>
+          <figure class="look"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=88" alt="Trabajo de peluquería profesional"><figcaption class="look-label">Natural texture · 03</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="ritual">
+      <div class="wrap ritual-grid">
+        <div class="ritual-card"><img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=1200&q=88" alt="Detalle de cuidado capilar en salón"></div>
+        <div class="ritual-copy">
+          <div class="eyebrow">La experiencia ÉLAN</div><h2>Tu cita,<br>sin prisas.</h2>
+          <p>Desde la primera conversación hasta el plan de mantenimiento, cada fase está diseñada para darte claridad, comodidad y un resultado duradero.</p>
+          <div class="steps">
+            <div class="step"><b>01</b><div><h3>Consulta</h3><p>Leemos tu cabello, escuchamos tus hábitos y definimos el objetivo.</p></div></div>
+            <div class="step"><b>02</b><div><h3>Creación</h3><p>Aplicamos una técnica personalizada, explicando cada decisión.</p></div></div>
+            <div class="step"><b>03</b><div><h3>Continuidad</h3><p>Te llevas una pauta sencilla para conservar el resultado en casa.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking">
+      <div class="wrap booking-inner"><h2>¿Empezamos por escucharte?</h2><a class="pill" href="#" onclick="openBooking(event)">Solicitar cita</a></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><div class="brand">ÉLAN <small>Hair Atelier · Madrid</small></div><p>Un concepto de salón contemporáneo creado para demostrar las posibilidades de una presencia digital cuidada.</p></div>
+        <div><h3>Visítanos</h3><p>Calle Velázquez, 00<br>28001 Madrid<br><br>L–V · 10:00–20:00<br>S · 10:00–15:00</p></div>
+        <div class="footer-links"><h3>Descubre</h3><a href="#servicios">Servicios</a><a href="#looks">Looks</a><a href="#atelier">El atelier</a><a href="#" onclick="openBooking(event)">Reservar</a></div>
+      </div>
+      <div class="legal"><div>© 2026 ÉLAN Atelier · Concepto ficticio</div><span>Diseñado por VELSUNA Web Studio</span></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="outsideClose(event)">
+    <div class="modal-card">
+      <button class="close" aria-label="Cerrar" onclick="closeBooking()">×</button>
+      <div class="eyebrow">Reserva de demostración</div><h2 id="modalTitle">Tu próxima cita.</h2>
+      <p>Este formulario muestra cómo sería una reserva online. No se enviará ningún dato porque ÉLAN es un concepto ficticio.</p>
+      <form onsubmit="demoSubmit(event)">
+        <div class="form-grid">
+          <label>Nombre<input required placeholder="Tu nombre"></label>
+          <label>Teléfono<input required type="tel" placeholder="600 000 000"></label>
+          <label>Servicio<select required><option value="">Seleccionar</option><option>Corte Signature</option><option>Color ÉLAN</option><option>Balayage Atelier</option><option>Ritual Repair</option></select></label>
+          <label>Fecha preferida<input required type="date"></label>
+          <label class="full">Cuéntanos qué buscas<textarea placeholder="Objetivo, largo actual o cualquier detalle útil"></textarea></label>
+        </div>
+        <button class="submit" type="submit">Comprobar disponibilidad</button>
+        <p class="form-note">Demostración interactiva · No se almacenan datos</p>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast">Demostración completada · En una web real recibirías la confirmación.</div>
+  <script>
+    const modal=document.getElementById('bookingModal');
+    function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+    function openBooking(e){if(e)e.preventDefault();modal.classList.add('open');document.body.classList.add('lock')}
+    function closeBooking(){modal.classList.remove('open');document.body.classList.remove('lock')}
+    function outsideClose(e){if(e.target===modal)closeBooking()}
+    function demoSubmit(e){e.preventDefault();closeBooking();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4200);e.target.reset()}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBooking()});
+  </script>
+</body>
+</html>
